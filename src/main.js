@@ -20,7 +20,7 @@ $('signupForm').addEventListener('submit', async e=>{
   try{
     await validateKey(key)
     msg(authStatus,'Criando conta...')
-    const email=`${crypto.randomUUID()}@local.invalid`
+    const email=`${crypto.randomUUID()}@example.com`
     const {data,error}=await supabase.auth.signUp({email,password,options:{data:{username}}})
     if(error) throw error
     if(!data.user) throw new Error('Não foi possível criar o usuário.')
