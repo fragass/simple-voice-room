@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simple Voice Room</title>
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <main class="app">
+    <section id="authView" class="card">
+      <h1>Simple Voice Room</h1>
+      <p class="muted">Use uma key de acesso para criar sua conta.</p>
+      <form id="signupForm">
+        <label>Key de acesso<input id="accessKey" required autocomplete="off" /></label>
+        <label>Usuário<input id="username" required minlength="3" maxlength="24" autocomplete="username" /></label>
+        <label>Senha<input id="password" type="password" required minlength="8" autocomplete="new-password" /></label>
+        <button type="submit">Criar conta e entrar</button>
+      </form>
+      <div id="authStatus" class="status"></div>
+    </section>
+
+    <section id="roomView" class="card hidden">
+      <header class="roomHeader">
+        <div><h1 id="roomName">Sala</h1><p id="identity" class="muted"></p></div>
+        <button id="logoutBtn" class="secondary">Sair</button>
+      </header>
+      <div class="roomBody">
+        <div>
+          <h2>Participantes</h2>
+          <div id="participants" class="participants"></div>
+        </div>
+        <aside class="controls">
+          <h2>Áudio</h2>
+          <button id="micBtn">🎙️ Microfone aberto</button>
+          <button id="audioBtn">🔊 Áudio ligado</button>
+          <button id="bothBtn">🔇 Mutar os dois</button>
+          <label class="selectLabel">Modo do microfone
+            <select id="micMode"><option value="open">Microfone aberto</option><option value="ptt">Push-to-talk</option></select>
+          </label>
+          <p class="muted small">No PTT, segure <kbd>Space</kbd> para falar.</p>
+          <div id="roomStatus" class="status"></div>
+        </aside>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
